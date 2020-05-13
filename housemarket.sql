@@ -17,38 +17,41 @@ CREATE TABLE ci_sessions(
 );
 
 CREATE TABLE `user` (
-  `id` INT NOT NULL AUTO_INCREMENT, 
+  `user_id` INT NOT NULL AUTO_INCREMENT, 
   `name` varchar(60) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `tel` varchar(11) DEFAULT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`user_id`)
 );
 
 CREATE TABLE `house` (
-  `id` INT NOT NULL AUTO_INCREMENT, 
+  `house_id` INT NOT NULL AUTO_INCREMENT, 
   `seller` int(11) NOT NULL,
   `zip` varchar(4) NOT NULL,
-  `adress` varchar(50) NOT NULL,
+  `adrres` varchar(50) NOT NULL,
   `Rnum` int(11) NOT NULL,
-  `comf` smallint(6) NOT NULL,
   `price` int(11) NOT NULL,
   `size` smallint(6) NOT NULL,
   `floors` smallint(6) NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`zip`) REFERENCES `zipcodes` (`zipcode`)
+  `description` TEXT NOT NULL,
+  `images` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`house_id`),
+  FOREIGN KEY (`zip`) REFERENCES `zipcodes` (`zipcode`),
+  FOREIGN KEY (`seller`) REFERENCES `user` (`user_id`)
+
 );
 
 CREATE TABLE `messages` (
-  `id` INT NOT NULL AUTO_INCREMENT, 
+  `message_id` INT NOT NULL AUTO_INCREMENT, 
   `sender` int(11) NOT NULL,
   `reciever` int(11) NOT NULL,
   `message` text NOT NULL,
   `sendTime` timestamp NOT NULL DEFAULT current_timestamp(),
   `isReaded` binary(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`sender`) REFERENCES `user` (`id`),
-  FOREIGN KEY (`reciever`) REFERENCES `user` (`id`)
+  PRIMARY KEY (`message_id`),
+  FOREIGN KEY (`sender`) REFERENCES `user` (`user_id`),
+  FOREIGN KEY (`reciever`) REFERENCES `user` (`user_id`)
 );
 
  INSERT INTO `zipcodes` (`zipcode`, `city`, `county`) VALUES
