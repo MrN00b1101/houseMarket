@@ -1,0 +1,11 @@
+# 1, biztosítom hogy URL átírási szabályokat tudjunk definiálni
+
+RewriteEngine on
+
+#1,5, ha a keresett string egy elérési út akkor, hagyjuk abba a kiértékelést és ne érvényesítsük a második pontot!
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#2, Átfordítom az url-t a kívánt formába.
+
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]
