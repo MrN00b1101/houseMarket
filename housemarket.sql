@@ -1,9 +1,9 @@
-CREATE TABLE `iranyitoszam` (
-  `iranyitoszam` varchar(4) NOT NULL default '',
-  `helyiseg` varchar(64) NOT NULL default '',
-  `megye` varchar(64) NOT NULL default '',
-  PRIMARY KEY  (`iranyitoszam`)
-)
+CREATE TABLE `zipcodes` (
+  `zipcode` varchar(4) NOT NULL default '',
+  `city` varchar(64) NOT NULL default '',
+  `county` varchar(64) NOT NULL default '',
+  PRIMARY KEY  (`zipcode`)
+);
 
 
 CREATE TABLE ci_sessions(
@@ -15,13 +15,15 @@ CREATE TABLE ci_sessions(
     CONSTRAINT PK_ci_sessions PRIMARY KEY(id),
     CONSTRAINT UQ_ci_sessions_timestamp UNIQUE (timestamp)
 );
+
 CREATE TABLE `user` (
   `id` INT NOT NULL AUTO_INCREMENT, 
   `name` varchar(60) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `tel` varchar(11) DEFAULT NULL
-)
+  `tel` varchar(11) DEFAULT NULL,
+  PRIMARY KEY  (`id`)
+);
 
 CREATE TABLE `house` (
   `id` INT NOT NULL AUTO_INCREMENT, 
@@ -34,7 +36,7 @@ CREATE TABLE `house` (
   `size` smallint(6) NOT NULL,
   `floors` smallint(6) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`zip`) REFERENCES `iranyitoszam` (`iranyitoszam`)
+  FOREIGN KEY (`zip`) REFERENCES `zipcodes` (`zipcode`)
 );
 
 CREATE TABLE `messages` (
@@ -45,9 +47,9 @@ CREATE TABLE `messages` (
   `isReaded` binary(1) NOT NULL DEFAULT '0',
   FOREIGN KEY (`sender`) REFERENCES `user` (`id`),
   FOREIGN KEY (`reciever`) REFERENCES `user` (`id`)
-)
+);
 
- INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
+ INSERT INTO `zipcodes` (`zipcode`, `city`, `county`) VALUES
 ('1011', 'Budapest I.', 'Budapest'),
 ('1012', 'Budapest I.', 'Budapest'),
 ('1013', 'Budapest I.', 'Budapest'),
@@ -215,7 +217,7 @@ CREATE TABLE `messages` (
 ('2014', 'Csobánka', 'Pest'),
 ('2015', 'Szigetmonostor', 'Pest'),
 ('2016', 'Leányfalu', 'Pest'),
-('2017', 'Pócsmegyer', 'Pest'),
+('2017', 'Pócscountyr', 'Pest'),
 ('2021', 'Tahitótfalu', 'Pest'),
 ('2022', 'Tahitótfalu', 'Pest'),
 ('2023', 'Dunabogdány', 'Pest'),
@@ -634,7 +636,7 @@ CREATE TABLE `messages` (
 ('3128', 'Vizslás', 'Nógrád'),
 ('3129', 'Lucfalva', 'Nógrád'),
 ('3131', 'Sóshartyán', 'Nógrád'),
-('3132', 'Nógrádmegyer', 'Nógrád'),
+('3132', 'Nógrádcountyr', 'Nógrád'),
 ('3133', 'Magyargéc', 'Nógrád'),
 ('3134', 'Piliny', 'Nógrád'),
 ('3135', 'Szécsényfelfalu', 'Nógrád'),
@@ -1258,7 +1260,7 @@ CREATE TABLE `messages` (
 ('4495', 'Döge', 'Szabolcs-Szatmár-Bereg'),
 ('4496', 'Szabolcsveresmart', 'Szabolcs-Szatmár-Bereg'),
 ('4501', 'Kemecse', 'Szabolcs-Szatmár-Bereg'),
-('4502', 'Vasmegyer', 'Szabolcs-Szatmár-Bereg'),
+('4502', 'Vascountyr', 'Szabolcs-Szatmár-Bereg'),
 ('4503', 'Tiszarád', 'Szabolcs-Szatmár-Bereg'),
 ('4511', 'Nyírbogdány', 'Szabolcs-Szatmár-Bereg'),
 ('4512', 'Nyírbogdány', 'Szabolcs-Szatmár-Bereg'),
@@ -1331,7 +1333,7 @@ CREATE TABLE `messages` (
 ('4741', 'Jánkmajtis', 'Szabolcs-Szatmár-Bereg'),
 ('4742', 'Csegöld', 'Szabolcs-Szatmár-Bereg'),
 ('4743', 'Csengersima', 'Szabolcs-Szatmár-Bereg');
-INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
+INSERT INTO `zipcodes` (`zipcode`, `city`, `county`) VALUES
 ('4745', 'Szamosbecs', 'Szabolcs-Szatmár-Bereg'),
 ('4746', 'Szamostatárfalva', 'Szabolcs-Szatmár-Bereg'),
 ('4751', 'Kocsord', 'Szabolcs-Szatmár-Bereg'),
@@ -1534,7 +1536,7 @@ INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
 ('5624', 'Doboz', 'Békés'),
 ('5630', 'Békés', 'Békés'),
 ('5641', 'Tarhos', 'Békés'),
-('5643', 'Bélmegyer', 'Békés'),
+('5643', 'Bélcountyr', 'Békés'),
 ('5650', 'Mezőberény', 'Békés'),
 ('5661', 'Újkígyós', 'Békés'),
 ('5662', 'Csanádapáca', 'Békés'),
@@ -2317,7 +2319,7 @@ INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
 ('8345', 'Dabronc', 'Veszprém'),
 ('8346', 'Gógánfa', 'Veszprém'),
 ('8347', 'Ukk', 'Veszprém'),
-('8348', 'Megyer', 'Veszprém'),
+('8348', 'countyr', 'Veszprém'),
 ('8349', 'Zalagyömörő', 'Veszprém'),
 ('8351', 'Sümeg', 'Veszprém'),
 ('8352', 'Bazsi', 'Veszprém'),
@@ -2478,7 +2480,7 @@ INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
 ('8654', 'Ságvár', 'Somogy'),
 ('8655', 'Som', 'Somogy'),
 ('8656', 'Nagyberény', 'Somogy'),
-('8658', 'Bábonymegyer', 'Somogy'),
+('8658', 'Bábonycountyr', 'Somogy'),
 ('8660', 'Kapoly', 'Somogy'),
 ('8666', 'Bedegkér', 'Somogy'),
 ('8667', 'Kánya', 'Somogy'),
@@ -2751,7 +2753,7 @@ INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
 ('9173', 'Győrladamér', 'Győr-Moson-Sopron'),
 ('9174', 'Dunaszeg', 'Győr-Moson-Sopron'),
 ('9175', 'Dunaszentpál', 'Győr-Moson-Sopron');
-INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
+INSERT INTO `zipcodes` (`zipcode`, `city`, `county`) VALUES
 ('9176', 'Hédervár', 'Győr-Moson-Sopron'),
 ('9177', 'Ásványráró', 'Győr-Moson-Sopron'),
 ('9178', 'Hédervár', 'Győr-Moson-Sopron'),
@@ -2949,7 +2951,7 @@ INSERT INTO `iranyitoszam` (`iranyitoszam`, `helyiseg`, `megye`) VALUES
 ('9749', 'Nemesbőd', 'Vas'),
 ('9751', 'Vép', 'Vas'),
 ('9752', 'Bozzai', 'Vas'),
-('9754', 'Megyehíd', 'Vas'),
+('9754', 'countyhíd', 'Vas'),
 ('9756', 'Ikervár', 'Vas'),
 ('9757', 'Meggyeskovácsi', 'Vas'),
 ('9761', 'Táplánszentkereszt', 'Vas'),
