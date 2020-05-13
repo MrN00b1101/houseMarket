@@ -40,11 +40,13 @@ CREATE TABLE `house` (
 );
 
 CREATE TABLE `messages` (
+  `id` INT NOT NULL AUTO_INCREMENT, 
   `sender` int(11) NOT NULL,
   `reciever` int(11) NOT NULL,
   `message` text NOT NULL,
   `sendTime` timestamp NOT NULL DEFAULT current_timestamp(),
   `isReaded` binary(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   FOREIGN KEY (`sender`) REFERENCES `user` (`id`),
   FOREIGN KEY (`reciever`) REFERENCES `user` (`id`)
 );

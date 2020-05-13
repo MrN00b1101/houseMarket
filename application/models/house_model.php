@@ -12,7 +12,7 @@
 
         public function sell_house(){
             $data = array(
-                'seller' => $this->session->userdata('user_id')
+                'seller' => $this->session->userdata('user_id'),
                 'zip' => $this->input->post('zip'),
                 'addres' => $this->input->post('addres'),
                 'rNum' => $this->input->post('addres'),
