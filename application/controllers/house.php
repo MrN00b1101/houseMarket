@@ -16,6 +16,7 @@ class House extends CI_Controller{
         }
 
         public function view($id = NULL){
+            $data['title'] = 'Üzenet';
             $data['house'] = $this->house_model->get_house($id);
 
             if(empty($data['house'])){

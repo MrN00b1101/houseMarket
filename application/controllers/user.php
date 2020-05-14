@@ -5,13 +5,25 @@
             $this->load->model('user_model'); 
     
         }
+        public function profile($id = NULL){
+            $data['user'] = $this->user_model->get_user($id);
+
+            if(empty($data['user'])){
+                show_404();
+            }
+            $data['title'] = $data['user']['name'];
+            $this->load->view('templates/header');
+            $this->load->view('user/profile', $data);
+            $this->load->view('templates/footer');
+        }
+
+
 
         public function register(){
             $data['title'] = "Regisztráció";
 
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('mail', 'Email', 'required|callback_check_email_exists');
-
             $this->form_validation->set_rules('password', 'Password', 'required');
             $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
 

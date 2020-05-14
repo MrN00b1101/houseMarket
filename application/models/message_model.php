@@ -10,16 +10,17 @@
         }
 
         public function get_message($messageid){
-            $query = $this->db->get_where('messages', array('id' => $messageid));
+            $query = $this->db->get_where('messages', array('message_id' => $messageid));
             return $query->row();
         }
 
-        public function send_message(){
+        public function send_message($reciever){
             $data = array(
                 'sender' =>$this->session->userdata('user_id'),
-                'reciever' => $this->input->post('reciever'),
+                'reciever' =>$this->input->post('reciever'),
                 'message' => $this->input->post('message')
             );
             return $this->db->insert('messages', $data);
         }
 
+    }

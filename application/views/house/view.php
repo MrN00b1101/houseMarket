@@ -14,7 +14,7 @@
                <li><h4>Ára: <small><?php echo $house['price']; ?> MFt</small></h4>
                <li><h4>Eladó: 
                 <?php if($this->session->userdata('logged_in')): ?>
-                    <a href="/user/profile/<?php echo $house['seller']; ?>">
+                    <a href="<?php echo base_url(); ?>/user/profile/<?php echo $house['seller']; ?>">
                 <?php endif; ?>  
                 <small><?php echo $house['name']; ?> </small>
                 <?php if($this->session->userdata('logged_in')): ?>

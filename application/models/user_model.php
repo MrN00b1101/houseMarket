@@ -23,7 +23,17 @@
             }
         }
 
-       
+        public function get_user($id = FALSE){
+            
+            if($id===FALSE){ 
+                $query = $this->db->get('user');
+                return $query->result_array();
+            }
+            $this->db->where('user.user_id', $id);
+            $query = $this->db->get('user');
+            return $query->row_array();
+        }
+
         public function check_email_exists($mail){
             $query = $this->db->get_where('user', array('mail' => $mail));
     
