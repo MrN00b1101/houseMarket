@@ -59,7 +59,7 @@ class House extends CI_Controller{
 
                 if(!$this->upload->do_upload('userfile')){
                     $errors = array('error' =>$this->upload->display_errors());
-                    $house_image = 'noimage.jpg';
+                    $house_image = 'noimage.png';
                 }else{
                     $data = array('upload_data' => $this->upload->data());
                     $house_image= $_FILES['userfile']['name'];
@@ -71,5 +71,63 @@ class House extends CI_Controller{
 
                 redirect('');
             }
+        }
+        public function delete($id){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('user/login');
+            }
+            if($this->session->userdata('user_id') == $this->house_model->get_house($id)['seller']){
+                $this->house_model->delete_house($id);
+                $this->session->set_flashdata('house_deleted', 'A ház törölve.');
+            }
+            redirect('');
+         }
+
+         public function edit($id){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('user/login');
+            }
+
+            $data['house'] = $this->house_model->get_house($id);
+            $data['cities'] = $this->zip_model->get_zipcodes();
+
+            if(empty($data['house'])){
+                show_404();
+            }
+            $data['title'] = 'Ház módosítás';
+            $this->load->view('templates/header');
+            $this->load->view('house/edit', $data);
+            $this->load->view('templates/footer');
+        }
+
+        public function update($house_id){
+
+            if(!$this->session->userdata('logged_in')){
+                redirect('user/login');
+            }
+            
+            
+                $config['upload_path'] = './assets';
+                $config['allowed_types'] = 'gif|jpg|png|jfif';
+                $config['max_size'] = '2048';
+                $config['max_width'] = '2000';
+                $config['max_height'] = '2000';
+                
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('userfile')){
+                    $errors = array('error' =>$this->upload->display_errors());
+                    $house_image = 'noimage.png';
+                }else{
+                    $data = array('upload_data' => $this->upload->data());
+                    $house_image= $_FILES['userfile']['name'];
+                }
+            $this->house_model->update_house($house_image, $house_id);
+
+            $this->session->set_flashdata('house_updated', 'A ház módosítva.');
+
+            redirect('');
         }
     }

@@ -34,15 +34,30 @@
             );
             return $this->db->insert('house', $data);
         }
-
-        
-
-        
         public function delete_house($houseid){
             $this->db->where('house_id', $houseid);
             $this->db->delete('house');
             return true;
         }
+        public function update_house($house_image, $house_id){
+            $id = url_title($this->input->post('id'));
+
+            $data = array(
+                'zip' => $this->input->post('city'),
+                'addres' => $this->input->post('addres'),
+                'Rnum' => $this->input->post('Rnum'),
+                'price' => $this->input->post('price'),
+                'floors' => $this->input->post('floors'),
+                'size' => $this->input->post('size'),
+                'description' => $this->input->post('description'),
+                'images' => $house_image
+            );
+
+            $this->db->where('house_id', $house_id);
+            return $this->db->update('house', $data);
+        
+        }
+
         public function get_houses_by_seller($houseid){
             $query = $this->db->get_where('house', array('seller' => $sellerid));
             return $query->result_array(); 
