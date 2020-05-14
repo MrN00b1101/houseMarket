@@ -1,4 +1,4 @@
-<h2 class="my-4"><?= $message['sender'] ?></h2>
+<h2 class="my-4"><?= $message['name'] ?></h2>
 
 <div class="row">
     <?php if($this->session->userdata('logged_in')): ?>

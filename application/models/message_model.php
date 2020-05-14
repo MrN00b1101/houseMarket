@@ -5,13 +5,20 @@
         }
 
         public function get_messages($userid){
-            $query = $this->db->get_where('messages', array('reciever' => $userid));
+            $this->db->select('*');
+            $this->db->from('messages');
+            $this->db->join('user', 'user.user_id = messages.sender');
+            $this->db->where('reciever', $userid);
+            $query = $this->db->get();
             return $query->result_array(); 
         }
 
         public function get_message($messageid){
+            $this->db->select('*');
+            $this->db->from('messages');
+            $this->db->join('user', 'user.user_id = messages.sender');
             $this->db->where('message_id', $messageid);
-            $query = $this->db->get('messages');
+            $query = $this->db->get();
 
             return $query->row_array();
         }

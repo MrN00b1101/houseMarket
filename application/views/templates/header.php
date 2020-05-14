@@ -20,7 +20,7 @@
       <?php if($this->session->userdata('logged_in')): ?>
 
       <li><a class="nav-link" href="<?php echo base_url(); ?>house/add">Ház hozzáadása </a></li>
-      <li> <a class="nav-link" href="<?php echo base_url(); ?>user/profile">Adataim</a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>user/profile/<?php echo $this->session->userdata('user_id'); ?>">Adataim</a></li>
       <li> <a class="nav-link" href="<?php echo base_url(); ?>message/list">Üzeneteim</a></li>
       <li> <a class="nav-link" href="<?php echo base_url(); ?>user/logout">Kijelentkezés</a></li>
 

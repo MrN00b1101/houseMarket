@@ -7,11 +7,13 @@
             </ul>   
             <?php if($this->session->userdata('logged_in')): ?>
             <hr>
-            <div class="row">
-                    <?php echo form_open('message/write/'.$user['user_id']); ?>
-                        <input class="px-md-3 btn btn-danger ml-2" type="submit" value="Üzenet írása">
-                    </form>
-                </form>
-            </div>
+                <?php if($this->session->userdata('user_id') != $user['user_id'] ): ?>
+                    <div class="row">
+                            <?php echo form_open('message/write/'.$user['user_id']); ?>
+                                <input class="px-md-3 btn btn-danger ml-2" type="submit" value="Üzenet írása">
+                            </form>
+                        </form>
+                    </div>
+                <?php endif; ?>   
             <?php endif; ?>   
 </div>
