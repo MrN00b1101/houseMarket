@@ -1,8 +1,10 @@
 <!DOCTYPE html>
     <head>
         <title>EladLak</title>
-        <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+        
         <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
+        <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/bootstrap.min.css">
+      
       </head> 
     
     <body>  

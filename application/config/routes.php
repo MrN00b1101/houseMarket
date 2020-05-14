@@ -19,7 +19,7 @@ $route['house/(:any)'] = 'house/view/$1';
 $route['house'] = 'house/index';
 
 $route['default_controller'] = 'house';
-
+$route['download/(:any)'] = "/filecontroller/download/$1";
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
