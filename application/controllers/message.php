@@ -7,7 +7,7 @@
     
         }
         public function list(){
-            
+            $data['title'] = 'Üzenetek';
             $data['messages'] = $this->message_model->get_messages($this->session->userdata('user_id'));
 
             $this->load->view('templates/header');
@@ -16,9 +16,8 @@
         }
 
 
-
         public function read($message_id){
-            $data['title'] = 'Üzenetek';
+            $data['title'] = $message_id;
             $data['message'] = $this->message_model->get_message($message_id);
 
             $this->load->view('templates/header');

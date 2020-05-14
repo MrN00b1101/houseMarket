@@ -10,8 +10,10 @@
         }
 
         public function get_message($messageid){
-            $query = $this->db->get_where('messages', array('message_id' => $messageid));
-            return $query->row();
+            $this->db->where('message_id', $messageid);
+            $query = $this->db->get('messages');
+
+            return $query->row_array();
         }
 
         public function send_message($reciever){
