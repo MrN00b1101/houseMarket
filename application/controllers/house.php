@@ -10,9 +10,9 @@ class House extends CI_Controller{
             $data['title'] = 'Házak';
             $data['houses'] = $this->house_model->get_house();
 
-           // $this->load->view('templates/header');
+            $this->load->view('templates/header');
             $this->load->view('house/list', $data);
-           // $this->load->view('templates/footer');
+            $this->load->view('templates/footer');
         }
 
         public function view($id = NULL){
@@ -22,11 +22,15 @@ class House extends CI_Controller{
                 show_404();
             }
             $data['title'] = $data['house']['addres'];
-            //$this->load->view('templates/header');
+            $this->load->view('templates/header');
             $this->load->view('house/view', $data);
-            //$this->load->view('templates/footer');
+            $this->load->view('templates/footer');
         }
         public function add(){
+            if(!$this->session->userdata('logged_in')){
+                redirect('user/login');
+            }
+
 
             $data['title'] = 'Ház meghírdetése';
             $data['cities'] = $this->zip_model->get_zipcodes();

@@ -1,5 +1,5 @@
 <?php
-    class user_model extends CI_Model{
+    class User_model extends CI_Model{
         
         public function register($enc_password){
             $data = array(
@@ -17,7 +17,7 @@
 
             $result = $this->db->get('user');
             if($result->num_rows()==1){
-                return $result->row(0)->userid;
+                return $result->row(0)->user_id;
             }else{
                 return false;
             }

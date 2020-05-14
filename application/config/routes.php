@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+$route['user/login'] = 'user/login';
+$route['user/register'] = 'user/register';
+
 $route['house/add'] = 'house/add'; 
 $route['house/list'] = 'house/index'; 
 $route['house/update'] = 'house/update'; 

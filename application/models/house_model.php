@@ -23,7 +23,7 @@
         public function sell_house($house_image){
             $data = array(
                 'seller' => $this->session->userdata('user_id'),
-                'zip' => $this->input->post('zip'),
+                'zip' => $this->input->post('city'),
                 'addres' => $this->input->post('addres'),
                 'rNum' => $this->input->post('rNum'),
                 'price' => $this->input->post('price'),

@@ -7,26 +7,22 @@
     <body>  
         
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="<?php echo base_url(); ?>">The Witcher</a>
+  
   <div class=" navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active"> <a class="nav-link" href="<?php echo base_url(); ?>">Kezdőoldal </a></li>
-      <li><a class="nav-link" href="<?php echo base_url(); ?>about">A Witcher világa</a></li>
-      <li><a class="nav-link" href="<?php echo base_url(); ?>chars">Karakterek </a></li>
-      <li><a class="nav-link" href="<?php echo base_url(); ?>races">Fajok </a></li>
-    </ul>
+    <a class="navbar-brand mr-auto" href="<?php echo base_url(); ?>">EladLak</a>
     <ul class="nav navbar-nav navbar-right">
       <?php if(!$this->session->userdata('logged_in')): ?>
 
-        <li> <a class="nav-link" href="<?php echo base_url(); ?>users/login">Bejelentkezés</a></li>
-        <li> <a class="nav-link" href="<?php echo base_url(); ?>users/register">Regisztráció</a></li>
+        <li> <a class="nav-link" href="<?php echo base_url(); ?>user/login">Bejelentkezés</a></li>
+        <li> <a class="nav-link" href="<?php echo base_url(); ?>user/register">Regisztráció</a></li>
   
       <?php endif; ?>
       <?php if($this->session->userdata('logged_in')): ?>
 
-      <li><a class="nav-link" href="<?php echo base_url(); ?>chars/create">Karakter készítő </a></li>
-      <li> <a class="nav-link" href="<?php echo base_url(); ?>races/create">Faj létrehozása</a></li>
-      <li> <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Kijelentkezés</a></li>
+      <li><a class="nav-link" href="<?php echo base_url(); ?>house/add">Ház hozzáadása </a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>user/profile">Adataim</a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>message/list">Üzeneteim</a></li>
+      <li> <a class="nav-link" href="<?php echo base_url(); ?>user/logout">Kijelentkezés</a></li>
 
       <?php endif; ?>
 
