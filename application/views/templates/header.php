@@ -37,24 +37,20 @@
   <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
 <?php endif; ?>
 
-<?php if($this->session->flashdata('character_created')): ?>
-  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('character_created').'</p>'; ?>
+<?php if($this->session->flashdata('advertisment_created')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('advertisment_created').'</p>'; ?>
 <?php endif; ?>
 
-<?php if($this->session->flashdata('character_updated')): ?>
-  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('character_updated').'</p>'; ?>
+<?php if($this->session->flashdata('house_deleted')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('house_deleted').'</p>'; ?>
 <?php endif; ?>
 
-<?php if($this->session->flashdata('race_created')): ?>
-  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('race_created').'</p>'; ?>
+<?php if($this->session->flashdata('house_updated')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('house_updated').'</p>'; ?>
 <?php endif; ?>
 
-<?php if($this->session->flashdata('character_deleted')): ?>
-  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('character_deleted').'</p>'; ?>
-<?php endif; ?>
-
-<?php if($this->session->flashdata('race_deleted')): ?>
-  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('race_deleted').'</p>'; ?>
+<?php if($this->session->flashdata('message_sent')): ?>
+  <?php echo '<p class="alert alert-success">'.$this->session->flashdata('message_sent').'</p>'; ?>
 <?php endif; ?>
 
 <?php if($this->session->flashdata('user_loggedin')): ?>
