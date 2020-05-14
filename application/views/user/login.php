@@ -1,4 +1,4 @@
-<h2 class="text-center my-4"><?= $title; ?></h2>
+
 <?php echo form_open('user/login'); ?>
     <div class="row">
         <div class="col-md-4 offset-4">
