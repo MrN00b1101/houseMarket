@@ -31,7 +31,8 @@
   
   <div class="form-group">
     <label>Település</label>
-    <select name="city" class="form-control">
+    <input list="zips" class="form-control" name="city" id="city">
+    <datalist id="zips">
       <?php foreach($cities as $city): ?>
         <option value="<?php echo $city['zipcode']; ?>"><?php echo $city['city']; ?></option>
       <?php endforeach; ?>

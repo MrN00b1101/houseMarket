@@ -31,14 +31,11 @@
   
   <div class="form-group">
     <label>Település</label>
-    <select name="city" class="form-control" >
-      <?php foreach($cities as $city): ?>
-        <?php if($city['zipcode'] == $house['zip']): ?>
-            <option selected="selected" value="<?php echo $city['zipcode']; ?>"><?php echo $city['city']; ?></option>
-        <?php  else:; ?>
-            <option  value="<?php echo $city['zipcode']; ?>"><?php echo $city['city']; ?></option>
-        <?php endif; ?>
-      <?php endforeach; ?>
+    <input list="zips" class="form-control" name="city" id="city" value="<?php echo $house['city']; ?>">
+    <datalist id="zips">
+    <?php foreach($cities as $city): ?>
+      <option  value="<?php echo $city['zipcode']; ?>"><?php echo $city['city']; ?></option>
+    <?php endforeach; ?>
     </select>
   </div>
   
