@@ -1,19 +1,15 @@
-<h2 class="my-4"><?php echo $user['name']; ?></h2>
+<h2 class="text-center my-4"><?php echo $user['name']; ?></h2>
 
-<div class="row">
-            <ul>
-               <li><h4>Mail: <small><?php echo $user['mail']; ?>  nm</small></h4>
-               <li><h4>Telefonszám: <small><?php echo $user['tel']; ?> </small></h4>  
-            </ul>   
+
+            
+              <h4>Mail:<?php echo $user['mail']; ?></h4>
+               <h4>Telefonszám:<?php echo $user['tel']; ?></h4>
+               
             <?php if($this->session->userdata('logged_in')): ?>
-            <hr>
+                <hr>
                 <?php if($this->session->userdata('user_id') != $user['user_id'] ): ?>
-                    <div class="row">
-                            <?php echo form_open('message/write/'.$user['user_id']); ?>
-                                <input class="px-md-3 btn btn-danger ml-2" type="submit" value="Üzenet írása">
-                            </form>
-                        </form>
-                    </div>
+                    <?php echo form_open('message/write/'.$user['user_id']); ?>
+                        <input class="px-md-3 btn btn-outline-primary ml-2" type="submit" value="Üzenet írása">
+                    <?php echo form_close(); ?>   
                 <?php endif; ?>   
             <?php endif; ?>   
-</div>

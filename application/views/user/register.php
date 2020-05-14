@@ -1,30 +1,55 @@
 <?php echo validation_errors(); ?>
-<h2 class="text-center"><?= $title; ?></h2>
-<div class="row">
+<h2 class="text-center my-4"><?= $title; ?></h2>
 
-<div class="col-md-5">
 <?php echo form_open('user/register'); ?>
-    <div class="form-group"> 
-        <label>Teljes név</label>
-        <input type="text" class="form-control" name="name" placeholder="Ide írd a teljes neved!">
+    
+<div class="form-row">
+        <div class="form-group col-md-12">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Teljes név:</span>
+                </div>
+                <input type="text" class="form-control"  name="name">
+            </div>
+        </div>
+  </div>
+  <div class="form-row">
+        <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Email</span>
+                </div>
+                <input type="email" class="form-control"  name="mail">
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" >Telefonszám:</span>
+                    </div>
+                    <input type="tel" class="form-control"  name="tel">
+            </div>
+        </div>
+  </div>
+  <div class="form-row ">
+  <div class="form-group col-md-6">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" >Jelszó:</span>
+        </div>
+        <input type="password" class="form-control"  name="password">
     </div>
-    <div class="form-group"> 
-        <label>E-mail</label>
-        <input type="mail" class="form-control" name="mail" placeholder="Ide írd az e-mail címed!">
+  </div>
+  <div class="form-group col-md-6">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" >Jelszó megerősítése:</span>
+        </div>
+        <input type="password" class="form-control"  name="password2">
     </div>
-    <div class="form-group"> 
-        <label>Telefonszám</label>
-        <input type="tel" class="form-control" name="tel" placeholder="Ide írd a telefonszámod!">
-    </div>
-    <div class="form-group"> 
-        <label>Jelszó</label>
-        <input type="password" class="form-control" name="password" placeholder="Ide írd a jelszavad!">
-    </div>
-    <div class="form-group"> 
-        <label>Jelszó megerősítése</label>
-        <input type="password" class="form-control" name="password2" placeholder="Jelszó megerősítése">
-    </div>
-    <button type="submit" class="btn btn-primary">Regisztráció</button>
+  </div>
+</div>
+<button type="submit" class="btn btn-block btn-outline-primary">Regisztráció</button>
+
 <?php echo form_close(); ?>
-</div>
-</div>
+

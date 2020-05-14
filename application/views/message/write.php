@@ -1,4 +1,4 @@
-<h2><?= $title; ?></h2>
+<h2 class="text-center my-4"><?= $title; ?></h2>
 
 <?php echo validation_errors(); ?>
 
@@ -8,5 +8,5 @@
     <textarea class="form-control" name="message" placeholder="Írd ide az üzented"></textarea>
     <input type="hidden" name="reciever" value="<?= $reciever ?>">
   </div>
-  <button type="submit" class="btn btn-secondary">Elküld</button>
+  <button type="submit" class="btn btn-outline-primary">Elküld</button>
 </form>

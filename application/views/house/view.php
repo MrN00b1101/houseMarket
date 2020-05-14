@@ -1,4 +1,4 @@
-<h2 class="my-4"><?php echo $house['addres']; ?></h2>
+<h2 class="text-center my-4"><?php echo $house['addres']; ?></h2>
 
 <div class="row">
         <div class="col-md-3">
@@ -32,14 +32,14 @@
             <div class="row mx-md-n5">
                 <?php if($this->session->userdata('user_id') == $house['seller']): ?>
                     <?php echo form_open('house/delete/'.$house['house_id']); ?>
-                        <input class="px-md-3 btn btn-danger ml-2" type="submit" value="Törlés">
+                        <input class="px-md-3 btn btn-outline-danger ml-2" type="submit" value="Törlés">
                     </form>
                     <?php echo form_open('house/edit/'.$house['house_id']); ?>
-                        <input class="px-md-3 btn btn-danger ml-2" type="submit" value="Módosítás">
+                        <input class="px-md-3 btn btn-outline-warning ml-2" type="submit" value="Módosítás">
                     </form>
                 <?php endif; ?>
 
-                <a href="<?php echo site_url('/download/'.$house['images']); ?>" class="btn btn-primary ml-2">Kép letöltés</a>
+                <a href="<?php echo site_url('/download/'.$house['images']); ?>" class="btn btn-outline-primary ml-2">Kép letöltés</a>
                 </form>
             </div>
             <?php endif; ?>

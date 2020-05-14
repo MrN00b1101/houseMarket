@@ -2,20 +2,19 @@
     <head>
         <title>EladLak</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+        <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
       </head> 
     
     <body>  
         
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  
-  <div class=" navbar-collapse" id="navbarColor02">
+    
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class=" navbar-collapse" id="navbarColor02">
     <a class="navbar-brand mr-auto" href="<?php echo base_url(); ?>">EladLak</a>
     <ul class="nav navbar-nav navbar-right">
       <?php if(!$this->session->userdata('logged_in')): ?>
-
         <li> <a class="nav-link" href="<?php echo base_url(); ?>user/login">Bejelentkezés</a></li>
         <li> <a class="nav-link" href="<?php echo base_url(); ?>user/register">Regisztráció</a></li>
-  
       <?php endif; ?>
       <?php if($this->session->userdata('logged_in')): ?>
 

@@ -31,5 +31,6 @@
             );
             return $this->db->insert('messages', $data);
         }
+        
 
     }

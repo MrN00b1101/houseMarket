@@ -48,7 +48,6 @@ CREATE TABLE `messages` (
   `reciever` int(11) NOT NULL,
   `message` text NOT NULL,
   `sendTime` timestamp NOT NULL DEFAULT current_timestamp(),
-  `isReaded` binary(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`message_id`),
   FOREIGN KEY (`sender`) REFERENCES `user` (`user_id`),
   FOREIGN KEY (`reciever`) REFERENCES `user` (`user_id`)
