@@ -29,7 +29,7 @@ CREATE TABLE `house` (
   `house_id` INT NOT NULL AUTO_INCREMENT, 
   `seller` int(11) NOT NULL,
   `zip` varchar(4) NOT NULL,
-  `adrres` varchar(50) NOT NULL,
+  `addres` varchar(50) NOT NULL,
   `Rnum` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `size` smallint(6) NOT NULL,
